@@ -35,7 +35,9 @@ C:\Users\Emmanuel\Desktop\DesarrolloMovilTareas\MiniFiguras\platforms\android\as
 C:\Users\Emmanuel\Desktop\DesarrolloMovilTareas\MiniFiguras\platforms\android\assets\www\img \
 C:\Users\Emmanuel\Desktop\DesarrolloMovilTareas\MiniFiguras\platforms\android\assets\www\index.html \
 C:\Users\Emmanuel\Desktop\DesarrolloMovilTareas\MiniFiguras\platforms\android\assets\www\js \
+C:\Users\Emmanuel\Desktop\DesarrolloMovilTareas\MiniFiguras\platforms\android\assets\www\lista.html \
 C:\Users\Emmanuel\Desktop\DesarrolloMovilTareas\MiniFiguras\platforms\android\assets\www\css\index.css \
+C:\Users\Emmanuel\Desktop\DesarrolloMovilTareas\MiniFiguras\platforms\android\assets\www\img\frutasverduras.jpg \
 C:\Users\Emmanuel\Desktop\DesarrolloMovilTareas\MiniFiguras\platforms\android\assets\www\img\logo.png \
 C:\Users\Emmanuel\Desktop\DesarrolloMovilTareas\MiniFiguras\platforms\android\assets\www\js\index.js \
 C:\Users\Emmanuel\Desktop\DesarrolloMovilTareas\MiniFiguras\platforms\android\ant-build\AndroidManifest.xml \
