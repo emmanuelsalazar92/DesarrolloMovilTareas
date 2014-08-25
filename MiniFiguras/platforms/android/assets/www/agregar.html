@@ -6,11 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
     <title>MiniFiguras</title>
+	<script src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lista.js"></script>
+
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <link href="css/lista.css" rel="stylesheet" type="text/css">
   
 	<title>Frutas</title>
     </head>
@@ -26,7 +29,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Las Frutas</a>
+      <a class="navbar-brand" href="index.html">
+
+  <span class="glyphicon glyphicon-chevron-left"></span> 
+
+</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -38,11 +45,27 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-     
-        
-        
 
-      
-<a href="lista.html" ><img src="img/canasta.jpg" style="display:block;margin:0 auto 0 auto;" class="img-responsive img-rounded" alt="Responsive image"></a>
-    </body>
+
+   <form role="form">
+  <div class="form-group">
+    <h1 for="titulo" class="text-left">Título</h1>
+    <input type="email" class="form-control input-lg" id="titulo"
+           placeholder="Título">
+  </div>
+  <div class="form-group">
+    <h1 for="descripcion" class="text-left">Descripción</h1>
+    <textarea class="form-control input-lg" id="descripcion" 
+           placeholder="Descripción"></textarea>
+  </div>
+  <div class="form-group">
+    <h1 for="imagen" class="text-left">Imagen</h1>
+    <input type="file" id="imagen">
+  </div>
+
+  <button type="submit" class="btn btn-primary col-xs-4">Enviar</button>
+</form>
+        
+  
+  </body>
 </html>
