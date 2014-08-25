@@ -9,7 +9,7 @@
 	<script src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/lista.js"></script>
+    <script type="text/javascript" src="js/agregar.js"></script>
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -50,7 +50,7 @@
    <form role="form">
   <div class="form-group">
     <h1 for="titulo" class="text-left">Título</h1>
-    <input type="email" class="form-control input-lg" id="titulo"
+    <input type="text" class="form-control input-lg" id="titulo"
            placeholder="Título">
   </div>
   <div class="form-group">
@@ -60,10 +60,11 @@
   </div>
   <div class="form-group">
     <h1 for="imagen" class="text-left">Imagen</h1>
-    <input type="file" id="imagen">
-  </div>
+   <input type='file' id="placeholder" />
+        		<img id="img" src="" class="img-responsive img-thumbnail" />
+    </div>
 
-  <button type="submit" class="btn btn-primary col-xs-4">Enviar</button>
+  <button type="button" id="subir" name="subir" class="btn btn-primary btn-lg btn-block" >Enviar</button>
 </form>
         
   
