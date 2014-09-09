@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Fruit Styles</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/letras.css" rel="stylesheet" type="text/css">
+
+	<!-- JavaScripts -->
+    <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/parse-1.2.19.js"></script>
+    
+    <style>
+		.text-color{
+			color:#000;
+			text-align:justify;
+		}
+	</style>
+	<script type="application/javascript">
+    function leerURL()
+	{
+		//alert("Leyendo");
+		var cadGET = location.search.substr(1,location.search.length);
+		var arrGET = cadGET.split("&");
+		var asocGET = new Array();
+		var variable = "";
+		var valor = "";
+		//alert("222");
+		for(i=0; i<arrGET.length;i++)
+		{
+			var aux =arrGET[i].split("=");
+			variable = aux[0];
+			//alert(aux[0]);
+			valor = aux[1];
+			//alert(aux[1]);
+			asocGET[variable] = valor;
+			//alert(valor);
+			}
+			
+			return asocGET;
+		
+	}
+	
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="index.html">Fruit Styles</a>
+            </li>
+            <li>
+                <a href="gallery.html">Gallery</a>
+            </li> 
+            <li>
+                <a href="add.html">New Fruit</a>
+            </li>                       
+            <li>
+                <a href="search.html">Back</a>
+            </li>
+            <li>
+                <a href="#">Close</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            
+			<section>
+				<div class="container">
+					<div class="row">
+						<div id="fruitDetail" class="col-xs-12 col-sm-6">
+<!------------------------------------------------------------------------------------------------------>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</header>
+
+
+
+
+
+
+
+
+     <script type="application/javascript">
+	
+$( document ).ready(function() 
+{
+	console.log("ready!");
+	var paresVarValor = leerURL();
+	var id = paresVarValor['id'];
+	Parse.initialize("icl8qTAQSYAN0u1PbR7vY09pEqIRKEROSxiIPgbg", "s28CiSWVOxaoJRWB1fnAMHa0T3GkAb6XoRwglhW4");
+	var myfruits = Parse.Object.extend("Fruit");
+	var query = new Parse.Query(myfruits);
+	query.find(
+		{
+			success: function(results)
+				{
+		  			var contenido = "";
+					for (var i = 0; i < results.length; i++) 
+						{ 
+							var object = results[i];
+							var objectId = object.id;
+							if(objectId == id)
+								{
+contenido += "<div class='panel-group' id='accordion'>";
+contenido += "	<div class='panel panel-primary'>";
+contenido += "    	<div class='panel-heading'>";
+contenido += "        	<h4 class='panel-title text-left'>";
+contenido += "            	<a id='titulo' data-toggle='collapse' data-parent='#accordion' href='#" +object.get('Name')+ "'>";              
+contenido += "               " +object.get('Name')+ "";
+contenido += "                </a>";
+contenido += "            </h4>";
+contenido += "        </div>";
+contenido += "        <div id='" +object.get('Name')+ "' class='panel-collapse colapse in'>";
+contenido += "                <div class='panel-body'>";
+contenido += "					<div class='thumbnail'>";
+contenido += "						<img src='" + object.get('Image').url() + "'>";
+contenido += "						<div class='caption text-left'>";
+contenido += "							<h3>Information</h3>";
+contenido += "							<p>" +object.get('Information')+ "</p>";
+contenido += "							<h3>Description</h3>";
+contenido += "							<p>" +object.get('Description')+ "</p>";
+contenido += "						</div>";
+contenido += "					</div>";
+contenido += "                </div> ";      
+contenido += "        </div>";
+contenido += "    </div>";
+contenido += "</div>";								
+							}
+						}
+					$( "#fruitDetail" ).append( contenido );
+	  			},
+	  		error: function(error) 
+				{
+					alert("Error: " + error.code + " " + error.message);
+	  			}
+		});	
+});
+		
+		
+		
+	</script>
+
+
+
+
+
+    <!-- Custom Theme JavaScript -->
+    <script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+
+    </script>
+
+</body>
+
+</html>

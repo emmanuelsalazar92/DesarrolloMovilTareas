@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Fruit Styles</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/letras.css" rel="stylesheet" type="text/css">
+
+	<!-- JavaScripts -->
+    <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/parse-1.2.19.js"></script>
+    
+
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="index.html">Fruit Styles</a>
+            </li>
+            <li>
+                <a href="gallery.html">View Gallery</a>
+            </li>
+            <li>
+                <a href="#">Close</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            <h1>New Fruit</h1>
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6">
+            			<!---	<div class="well">-->
+
+
+<form role="form">
+<div class='panel-group' id='accordion'>
+	<div class='panel panel-primary'>
+   	<div class='panel-heading'>
+        	<h4 class='panel-title text-left'>
+            	<a id='titulo' data-toggle='collapse' data-parent='#accordion' href='#add'>             
+               <input type="text" class="form-control input-lg" id="tittleFruit" placeholder="Tittle"> 
+                </a>
+            </h4>
+        </div>
+        <div id='new' class='panel-collapse colapse in'>
+                <div class='panel-body'>
+					<div class='thumbnail'>
+                    	<input type='file' id="placeholder" class="form-control input-lg"/>
+						<img  id="imageFruit" src="">
+                        <script type="application/javascript">
+								var parseFile;	
+		function readImage(input) 
+		{
+			if ( input.files && input.files[0] ) 
+				{
+					var FR= new FileReader();
+					FR.onload = function(e) 
+					{
+						$('#imageFruit').attr( "src", e.target.result );
+						parseFile = new Parse.File(document.getElementById("tittleFruit").value+".jpg", input.files[0]);//Fin parseFile
+						console.log(input.files[0]);
+					};       
+					FR.readAsDataURL( input.files[0] );
+				}
+		}
+						$("#placeholder").change(function(){readImage(this);});
+						</script>
+						<div class='caption text-left'>
+							<h3>Information</h3>
+							<p>
+                            <textarea class="form-control input-lg" id="information"  placeholder="Information"></textarea>
+                            </p>
+							<h3>Description</h3>
+							<p>                       
+                            <textarea class="form-control input-lg" id="description"  placeholder="Description"></textarea> 
+                            </p>
+							<h3>Tag</h3>
+							<p>                       
+                            <input type="text" class="form-control input-lg" id="tag" placeholder="Tag">
+                            </p>                            
+                            <button type="button" id="uploadFruit" name="uploadFruit" class="btn btn-primary btn-lg btn-block" >Add Fruit</button>
+						</div>
+					</div>
+                </div>       
+        </div>
+    </div>
+</div>
+</form>
+
+
+
+
+
+						<!--	</div>-->
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</header>
+
+
+
+
+
+
+
+
+
+
+
+	<script type="text/javascript" src="js/add.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script type="application/javascript">
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+
+    </script>
+
+</body>
+
+</html>

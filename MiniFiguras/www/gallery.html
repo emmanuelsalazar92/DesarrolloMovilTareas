@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Fruit Styles</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/letras.css" rel="stylesheet" type="text/css">
+
+	<!-- JavaScripts -->
+    <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/parse-1.2.19.js"></script>
+	<script type="text/javascript" src="js/gallery.js"></script>
+
+	
+    
+    <style>
+		.text-color{
+			color:#000;
+			text-align:justify;
+		}
+	</style>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="index.html">Fruit Styles</a>
+            </li>
+            <li>
+                <a href="add.html">New Fruit</a>
+            </li>            
+            <li>
+                <a href="search.html">Back</a>
+            </li>
+            <li>
+                <a href="#">Close</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            <h1>Gallery</h1>
+			<section>
+				<div class="container">
+					<div class="row">
+						<div id="myfruits" class="col-xs-12 col-sm-6">
+<!----------------------------------------------------------------------------------->
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Custom Theme JavaScript -->
+    <script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+
+    </script>
+
+</body>
+
+</html>
