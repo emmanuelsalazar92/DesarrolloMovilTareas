@@ -26,12 +26,13 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/parse-1.2.19.js"></script>
-    
+
+ 
 
 
 </head>
 
-<body>
+<body onLoad="getInfo();">
 
     <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
@@ -74,25 +75,12 @@
         <div id='new' class='panel-collapse colapse in'>
                 <div class='panel-body'>
 					<div class='thumbnail'>
+                    
+                   
                     	<input type='file' id="placeholder" class="form-control input-lg"/>
 						<img  id="imageFruit" src="">
                         <script type="application/javascript">
-								var parseFile;	
-		function readImage(input) 
-		{
-			if ( input.files && input.files[0] ) 
-				{
-					var FR= new FileReader();
-					FR.onload = function(e) 
-					{
-						$('#imageFruit').attr( "src", e.target.result );
-						parseFile = new Parse.File(document.getElementById("tittleFruit").value+".jpg", input.files[0]);//Fin parseFile
-						console.log(input.files[0]);
-					};       
-					FR.readAsDataURL( input.files[0] );
-				}
-		}
-						$("#placeholder").change(function(){readImage(this);});
+
 						</script>
 						<div class='caption text-left'>
 							<h3>Information</h3>
@@ -108,6 +96,11 @@
                             <input type="text" class="form-control input-lg" id="tag" placeholder="Tag">
                             </p>                            
                             <button type="button" id="uploadFruit" name="uploadFruit" class="btn btn-primary btn-lg btn-block" >Add Fruit</button>
+<p>Nombre: <span id="userName"></span></p>
+<p>ID: <span id="userID"></span></p>
+<img id="userPic"/>
+<hr/> 
+                         
 						</div>
 					</div>
                 </div>       
@@ -134,6 +127,82 @@
 
 
 
+<!--cordova.js is automatically injected by the Cordova build process-->
+<script src="cordova.js"></script>
+
+<script src="openfb.js"></script>
+
+<script>
+
+     // Defaults to sessionStorage for storing the Facebook token
+     openFB.init({appId: '289459237908963'});
+
+    //  Uncomment the line below to store the Facebook token in localStorage instead of sessionStorage
+    //  openFB.init({appId: 'YOUR_FB_APP_ID', tokenStore: window.localStorage});
+
+    function login() {
+        openFB.login(
+                function(response) {
+                    if(response.status === 'connected') {
+                        alert('Facebook login succeeded, got access token: ' + response.authResponse.token);
+                    } else {
+                        alert('Facebook login failed: ' + response.error);
+                    }
+                }, {scope: 'email,read_stream,publish_stream'});
+				getInfo();
+    }
+
+    function getInfo() {
+        openFB.api({
+            path: '/me',
+            success: function(data) {
+                console.log(JSON.stringify(data));
+				
+                document.getElementById("userName").innerHTML = data.name;
+				document.getElementById("userName").value = data.name;
+                document.getElementById("userID").innerHTML = data.id;
+				document.getElementById("userID").value = data.id;				
+                document.getElementById("userPic").src = 'http://graph.facebook.com/' + data.id + '/picture?type=large';
+
+				
+            },
+            error: errorHandler});
+    }
+
+    function share() {
+        openFB.api({
+            method: 'POST',
+            path: '/me/feed',
+            params: {
+                message: document.getElementById('Message').value || 'Testing Facebook APIs'
+            },
+            success: function() {
+                alert('the item was posted on Facebook');
+            },
+            error: errorHandler});
+    }
+
+    function revoke() {
+        openFB.revokePermissions(
+                function() {
+                    alert('Permissions revoked');
+                },
+                errorHandler);
+    }
+
+    function logout() {
+        openFB.logout(
+                function() {
+                    alert('Logout successful');
+                },
+                errorHandler);
+    }
+
+    function errorHandler(error) {
+        alert(error.message);
+    }
+
+</script>
 
 
 

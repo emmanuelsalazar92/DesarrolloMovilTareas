@@ -26,7 +26,7 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/parse-1.2.19.js"></script>
-	
+
 
 </head>
 
@@ -130,6 +130,7 @@ contenido += "            </a>";
 contenido += "        </div>";
 contenido += "    </div>";
 contenido += "</div>";								
+
 						}
 					document.getElementById("searchFruit").innerHTML="";
 					$( "#searchFruit" ).append( contenido );
@@ -139,7 +140,46 @@ contenido += "</div>";
     alert("Error: " + error.code + " " + error.message);
   }
 });	
-	
+query.equalTo("Name", document.getElementById("input-fruit").value);
+query.find({
+  success: function(results) {
+    //alert("Successfully retrieved " + results.length + " fruits.");
+    // Do something with the returned Parse.Object values
+	var contenido = "";
+    for (var i = 0; i < results.length; i++) { 
+      var object = results[i];
+	  var objectId = object.id;
+     // alert(object.id + ' - ' + object.get('Name'));
+contenido += "<div class='panel-group' id='accordion'>";
+contenido += "	<div class='panel panel-primary'>";
+contenido += "    	<div class='panel-heading'>";
+contenido += "        	<h4 class='panel-title text-left'>";
+contenido += "            	<a data-toggle='collapse' data-parent='#accordion' href='#" +object.get('Name')+ "'>";
+contenido += "               " +object.get('Name')+ " ";
+contenido += "                </a>";
+contenido += "            </h4>";
+contenido += "        </div>";
+contenido += "        <div id='" +object.get('Name')+ "' class='panel-collapse colapse in'>";
+contenido += "            <a href='detail.html?id=" + objectId + "'>";
+contenido += "                <div class='panel-body'>";
+contenido += "                    <div class='thumbnail'>";
+contenido += "                        <img src='" + object.get('Image').url() + "'>";
+contenido += "                    </div>";
+contenido += "                </div>";
+contenido += "            </a>";   
+contenido += "        </div>";
+contenido += "    </div>";
+contenido += "</div>";								
+
+						}
+					
+					$( "#searchFruit" ).append( contenido );
+					
+  },
+  error: function(error) {
+    alert("Error: " + error.code + " " + error.message);
+  }
+});	
 	
 
 });

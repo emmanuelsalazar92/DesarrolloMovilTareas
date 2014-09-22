@@ -26,6 +26,7 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/parse-1.2.19.js"></script>
+	  
     
     <style>
 		.text-color{
@@ -98,6 +99,7 @@
 						<div id="fruitDetail" class="col-xs-12 col-sm-6">
 <!------------------------------------------------------------------------------------------------------>
 						</div>
+						                     
 					</div>
 				</div>
 			</section>
@@ -150,6 +152,8 @@ contenido += "							<h3>Information</h3>";
 contenido += "							<p>" +object.get('Information')+ "</p>";
 contenido += "							<h3>Description</h3>";
 contenido += "							<p>" +object.get('Description')+ "</p>";
+contenido += "							<h3>Creador</h3>";
+contenido += "							<p>" +object.get('userName')+ "</p>";
 contenido += "						</div>";
 contenido += "					</div>";
 contenido += "                </div> ";      
@@ -174,7 +178,7 @@ contenido += "</div>";
 
 
 
-
+	<script type="text/javascript" src="js/add.js"></script>
     <!-- Custom Theme JavaScript -->
     <script>
     // Closes the sidebar menu
